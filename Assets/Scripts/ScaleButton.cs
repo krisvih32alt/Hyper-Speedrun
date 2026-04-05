@@ -34,7 +34,7 @@ public class ScaleButton : MonoBehaviour,
 
     private Vector3 originalScale;
     private Color originalColor;
-    private Image image;
+    private Graphic image;
     private Vector3 targetScale;
     private Color targetColor;
     private float targetGlowAlpha;
@@ -43,7 +43,7 @@ public class ScaleButton : MonoBehaviour,
 
     void Start()
     {
-        image = GetComponent<Image>();
+        image = GetComponent<Graphic>();
         if (image == null)
         {
             enabled = false;
