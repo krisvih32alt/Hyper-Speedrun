@@ -3149,6 +3149,8 @@ MonoBehaviour:
   passwordInput: {fileID: 0}
   usernameInput: {fileID: 0}
   feedbackText: {fileID: 0}
+  registerButton: {fileID: 0}
+  loginButton: {fileID: 0}
 --- !u!4 &1772260755
 Transform:
   m_ObjectHideFlags: 0
