@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
@@ -12,7 +13,6 @@ public class AuthManager : MonoBehaviour
     [Header("UI References")]
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
-    public TMP_InputField usernameInput;
     public TextMeshProUGUI feedbackText;
 
     [Header("Buttons")]
@@ -20,6 +20,7 @@ public class AuthManager : MonoBehaviour
     public Button loginButton;
 
     private string _playFabId;
+    private bool _isNewAccount;
 
     void Awake()
     {
@@ -38,7 +39,7 @@ public class AuthManager : MonoBehaviour
 
     public void RegisterButton()
     {
-        Register(emailInput.text, passwordInput.text, usernameInput.text);
+        Register(emailInput.text, passwordInput.text);
     }
 
     public void LoginButton()
@@ -48,19 +49,19 @@ public class AuthManager : MonoBehaviour
 
     // --- REGISTER ---
 
-    public void Register(string email, string password, string username)
+    public void Register(string email, string password)
     {
-        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(username))
+        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
         {
             feedbackText.text = "All fields are required.";
             return;
         }
 
         if (password.Length < 8 || password.Length > 100)
-{
-    feedbackText.text = "Password must be between 8 and 100 characters.";
-    return;
-}
+        {
+            feedbackText.text = "Password must be between 8 and 100 characters.";
+            return;
+        }
 
         SetUIInteractable(false);
 
@@ -68,8 +69,7 @@ public class AuthManager : MonoBehaviour
         {
             Email = email,
             Password = password,
-            Username = username,
-            RequireBothUsernameAndEmail = true
+            RequireBothUsernameAndEmail = false
         };
 
         PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
@@ -78,9 +78,10 @@ public class AuthManager : MonoBehaviour
     void OnRegisterSuccess(RegisterPlayFabUserResult result)
     {
         _playFabId = result.PlayFabId;
+        _isNewAccount = true;
         SetUIInteractable(true);
-        feedbackText.text = "Account created! Welcome to Hyper Speedrun.";
         SyncLocalProgressToCloud();
+        SceneManager.LoadScene("ChooseDisplayName");
     }
 
     // --- LOGIN ---
@@ -107,9 +108,22 @@ public class AuthManager : MonoBehaviour
     void OnLoginSuccess(LoginResult result)
     {
         _playFabId = result.PlayFabId;
+        _isNewAccount = false;
         SetUIInteractable(true);
-        feedbackText.text = "Logged in!";
         LoadCloudProgress();
+        CheckDisplayName();
+    }
+
+    private void CheckDisplayName()
+    {
+        PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest(), result =>
+        {
+            string displayName = result.PlayerProfile.DisplayName;
+            if (string.IsNullOrEmpty(displayName))
+                SceneManager.LoadScene("ChooseDisplayName");
+            else
+                SceneManager.LoadScene("Title"); 
+        }, OnError);
     }
 
     // --- ERROR HANDLING ---
@@ -160,7 +174,6 @@ public class AuthManager : MonoBehaviour
         if (loginButton != null) loginButton.interactable = state;
         if (emailInput != null) emailInput.interactable = state;
         if (passwordInput != null) passwordInput.interactable = state;
-        if (usernameInput != null) usernameInput.interactable = state;
     }
 
     // --- DATA SYNCING ---
