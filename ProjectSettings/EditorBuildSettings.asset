@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: 518fc7e444533734082371a88f33650d
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: a8e457d0742f0bf4491c85df88965def
+  - enabled: 1
+    path: Assets/Scenes/EmailSignIn.unity
+    guid: acbb7be5bcfd8df4ca2f41c76080b869
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

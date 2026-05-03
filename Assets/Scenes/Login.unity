@@ -2697,7 +2697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5086476ae54214ebe93dfd06e5048a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScaleButton
-  sceneToLoad: Email
+  sceneToLoad: EmailSignIn
   hoverScale: 1.08
   clickScale: 0.95
   hoverColor: {r: 0.3019608, g: 1, b: 0.3019608, a: 1}
@@ -3147,8 +3147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AuthManager
   emailInput: {fileID: 0}
   passwordInput: {fileID: 0}
-  usernameInput: {fileID: 0}
   feedbackText: {fileID: 0}
+  registerButton: {fileID: 0}
+  loginButton: {fileID: 0}
 --- !u!4 &1772260755
 Transform:
   m_ObjectHideFlags: 0

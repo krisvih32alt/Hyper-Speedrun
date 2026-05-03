@@ -172,6 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 128713067}
+  - component: {fileID: 128713068}
   m_Layer: 5
   m_Name: AccountButtons
   m_TagString: Untagged
@@ -201,6 +202,20 @@ RectTransform:
   m_AnchoredPosition: {x: -384.85297, y: -152.50229}
   m_SizeDelta: {x: 90.78534, y: 90.78531}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &128713068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128713066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b81316f6b07cee4396558a9480bef78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleUI
+  loginButton: {fileID: 682426523}
+  logoutButton: {fileID: 1195710661}
 --- !u!1 &132349855
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +946,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11de64f24649e2b46b1c9aae73257c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AuthManager
+  emailInput: {fileID: 0}
+  passwordInput: {fileID: 0}
+  feedbackText: {fileID: 0}
+  registerButton: {fileID: 0}
+  loginButton: {fileID: 0}
 --- !u!4 &305301458
 Transform:
   m_ObjectHideFlags: 0

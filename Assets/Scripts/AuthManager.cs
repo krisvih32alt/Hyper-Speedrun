@@ -151,7 +151,8 @@ public class AuthManager : MonoBehaviour
             case PlayFabErrorCode.AccountNotFound:
             case PlayFabErrorCode.InvalidEmailOrPassword:
                 feedbackText.text = "Incorrect email or password."; break;
-
+            case PlayFabErrorCode.InvalidParams:
+                feedbackText.text = "Please enter a valid email and password from 8-100 characters."; break;
             // Network / server
             case PlayFabErrorCode.ConnectionError:
                 feedbackText.text = "Can't reach the server. Check your connection."; break;
