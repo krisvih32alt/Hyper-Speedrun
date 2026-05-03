@@ -111,19 +111,7 @@ public class AuthManager : MonoBehaviour
         _isNewAccount = false;
         SetUIInteractable(true);
         LoadCloudProgress();
-        CheckDisplayName();
-    }
-
-    private void CheckDisplayName()
-    {
-        PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest(), result =>
-        {
-            string displayName = result.PlayerProfile.DisplayName;
-            if (string.IsNullOrEmpty(displayName))
-                SceneManager.LoadScene("ChooseDisplayName");
-            else
-                SceneManager.LoadScene("Title"); 
-        }, OnError);
+        SceneManager.LoadScene("Title");
     }
 
     // --- ERROR HANDLING ---
@@ -218,4 +206,11 @@ public class AuthManager : MonoBehaviour
 
     public string GetPlayFabId() => _playFabId;
     public bool IsLoggedIn() => !string.IsNullOrEmpty(_playFabId);
+    public void Logout()
+    {
+        Debug.Log("Logout called");
+        _playFabId = null;
+        PlayFabClientAPI.ForgetAllCredentials();
+        SceneManager.LoadScene("Title");
+    }
 }
