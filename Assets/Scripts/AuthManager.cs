@@ -13,7 +13,7 @@ public class AuthManager : MonoBehaviour
     [Header("UI References")]
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
-    public TextMeshProUGUI feedbackText;
+    public TMP_Text feedbackText;
 
     [Header("Buttons")]
     public Button registerButton;
@@ -112,6 +112,13 @@ public class AuthManager : MonoBehaviour
         SetUIInteractable(true);
         LoadCloudProgress();
         SceneManager.LoadScene("Title");
+    }
+
+    public void InitializeUI(TMP_InputField email, TMP_InputField password, TMP_Text feedback)
+    {
+        emailInput = email;
+        passwordInput = password;
+        feedbackText = feedback;
     }
 
     // --- ERROR HANDLING ---

@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EmailSignIn.unity
     guid: acbb7be5bcfd8df4ca2f41c76080b869
+  - enabled: 1
+    path: Assets/Scenes/EmailSignUp.unity
+    guid: 9eabb602207c7c54e8e4090410ed7af9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

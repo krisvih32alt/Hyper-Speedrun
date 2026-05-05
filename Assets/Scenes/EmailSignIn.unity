@@ -3191,9 +3191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11de64f24649e2b46b1c9aae73257c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AuthManager
-  emailInput: {fileID: 771090448}
-  passwordInput: {fileID: 68676940}
-  feedbackText: {fileID: 448070552}
+  emailInput: {fileID: 0}
+  passwordInput: {fileID: 0}
+  feedbackText: {fileID: 0}
   registerButton: {fileID: 0}
   loginButton: {fileID: 320652478}
 --- !u!4 &1772260755
@@ -3518,6 +3518,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909239399}
   m_CullTransparentMesh: 1
+--- !u!1 &2096813275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096813276}
+  - component: {fileID: 2096813277}
+  m_Layer: 0
+  m_Name: AuthSceneBridge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096813276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096813275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 382.1125, y: 350.2747, z: 6.35715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2096813277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096813275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2c01d43ea750246b3e6a94c496ad2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AuthSceneBridge
+  emailInput: {fileID: 771090448}
+  passwordInput: {fileID: 68676940}
+  feedbackText: {fileID: 448070552}
 --- !u!1 &2103641910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,3 +3776,4 @@ SceneRoots:
   - {fileID: 28080148}
   - {fileID: 1561199903}
   - {fileID: 670138450}
+  - {fileID: 2096813276}
